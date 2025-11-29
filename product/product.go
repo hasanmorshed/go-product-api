@@ -1,4 +1,4 @@
-package main
+package product
 
 type Product struct {
 	ID          int     `json:"id"`
@@ -7,5 +7,3 @@ type Product struct {
 	Price       float64 `json:"price"`
 	ImgUrl      string  `json:"imgurl"`
 }
-
-var productList []Product

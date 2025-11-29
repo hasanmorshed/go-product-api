@@ -2,8 +2,8 @@ package handlers
 
 import (
 	"encoding/json"
+	"go-first-project/database"
 	"go-first-project/global_router"
-	"go-first-project/product"
 	"go-first-project/util"
 	"net/http"
 )
@@ -22,21 +22,21 @@ func PatchProduct(w http.ResponseWriter, r *http.Request) {
 	idFloat := patchData["id"].(float64)
 	id := int(idFloat)
 
-	for i, p := range product.ProductList {
+	for i, p := range database.ProductList {
 		if p.ID == id {
 			if title, ok := patchData["title"].(string); ok {
-				product.ProductList[i].Title = title
+				database.ProductList[i].Title = title
 			}
 			if desc, ok := patchData["description"].(string); ok {
-				product.ProductList[i].Description = desc
+				database.ProductList[i].Description = desc
 			}
 			if price, ok := patchData["price"].(float64); ok {
-				product.ProductList[i].Price = price
+				database.ProductList[i].Price = price
 			}
 			if img, ok := patchData["imgurl"].(string); ok {
-				product.ProductList[i].ImgUrl = img
+				database.ProductList[i].ImgUrl = img
 			}
-			util.SendData(w, product.ProductList[i], 200)
+			util.SendData(w, database.ProductList[i], 200)
 			return
 		}
 	}

@@ -2,8 +2,8 @@ package handlers
 
 import (
 	"encoding/json"
+	"go-first-project/database"
 	"go-first-project/global_router"
-	"go-first-project/product"
 	"go-first-project/util"
 	"net/http"
 )
@@ -21,9 +21,9 @@ func DeleteProduct(w http.ResponseWriter, r *http.Request) {
 
 	id := data["id"]
 
-	for i, p := range product.ProductList {
+	for i, p := range database.ProductList {
 		if p.ID == id {
-			product.ProductList = append(product.ProductList[:i], product.ProductList[i+1:]...)
+			database.ProductList = append(database.ProductList[:i], database.ProductList[i+1:]...)
 			util.SendData(w, map[string]string{"message": "Product deleted"}, 200)
 			return
 		}

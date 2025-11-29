@@ -2,8 +2,8 @@ package handlers
 
 import (
 	"encoding/json"
+	"go-first-project/database"
 	"go-first-project/global_router"
-	"go-first-project/product"
 	"go-first-project/util"
 	"net/http"
 )
@@ -12,7 +12,7 @@ func UpdateProduct(w http.ResponseWriter, r *http.Request) {
 	global_router.HandleCors(w)
 	global_router.HandlePreflightReq(w, r)
 
-	var updatedProduct product.Product
+	var updatedProduct database.Product
 	err := json.NewDecoder(r.Body).Decode(&updatedProduct)
 	if err != nil {
 		http.Error(w, "Invalid JSON", 400)
@@ -24,9 +24,9 @@ func UpdateProduct(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	for i, p := range product.ProductList {
+	for i, p := range database.ProductList {
 		if p.ID == updatedProduct.ID {
-			product.ProductList[i] = updatedProduct
+			database.ProductList[i] = updatedProduct
 			util.SendData(w, updatedProduct, 200)
 			return
 		}

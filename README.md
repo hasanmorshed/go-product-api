@@ -44,8 +44,13 @@ GO_FIRST_PROJECT/
 ├── util/
 │   └── send_data.go            # Utility for JSON response
 │
+├── cmd/
+│   └── server.go               # Server entry point 
+│
 ├── main.go                     # Starts the server
-└── go.mod                      # Go module file
+├── go.mod                      # Go module file
+└── README.md                   # Project documentation
+
 ```
 
 ---

@@ -28,6 +28,9 @@ The project demonstrates clean folder structure, handlers separation, custom rou
 ```
 GO_FIRST_PROJECT/
 │
+├── cmd/
+│   └── server.go               # Server entry point 
+│
 ├── database/
 │   └── product.go              # Product struct & data storage
 │
@@ -44,12 +47,10 @@ GO_FIRST_PROJECT/
 ├── util/
 │   └── send_data.go            # Utility for JSON response
 │
-├── cmd/
-│   └── server.go               # Server entry point 
-│
-├── main.go                     # Starts the server
 ├── go.mod                      # Go module file
+├── main.go                     # Starts the server
 └── README.md                   # Project documentation
+
 
 ```
 

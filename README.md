@@ -32,25 +32,25 @@ GO_FIRST_PROJECT/
 │   └── server.go               # Server entry point 
 │
 ├── database/
-│   └── product.go              # Product struct & data storage
+│   └── product.go              # Product struct & product data storage
 │
 ├── global_router/
 │   └── global_router.go        # All routes registered here
 │
 ├── handlers/
-│   ├── create_products.go      # POST handler
-│   ├── delete_products.go      # DELETE handler
-│   ├── get_products.go         # GET handler
-│   ├── patch_products.go       # PATCH handler
-│   └── put_products.go         # PUT handler
+│   ├── create_products.go      # Handler for POST request
+│   ├── delete_products.go      # Handler for DELETE request
+│   ├── get_products.go         # Handler for fetching all products
+│   ├── get_single_product.go   # Handler for fetching a single product by ID
+│   ├── patch_products.go       # Handler for PATCH request
+│   └── put_products.go         # Handler for PUT request
 │
 ├── util/
-│   └── send_data.go            # Utility for JSON response
+│   └── send_data.go            # Utility for sending JSON responses
 │
 ├── go.mod                      # Go module file
 ├── main.go                     # Starts the server
 └── README.md                   # Project documentation
-
 
 ```
 
@@ -85,6 +85,17 @@ http://localhost:3000
 
 ```
 GET /products
+```
+
+---
+
+
+### **Get single product**
+
+```
+GET /products/{productID}
+Example:
+GET /products/2
 ```
 
 ---

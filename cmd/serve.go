@@ -10,6 +10,7 @@ func Serve() {
 	mux := http.NewServeMux()
 
 	mux.Handle("GET /products", http.HandlerFunc(handlers.GetProducts))
+	mux.Handle("GET /products/{productID}", http.HandlerFunc(handlers.GetSingleProduct))
 	mux.Handle("POST /create-product", http.HandlerFunc(handlers.CreateProduct))
 	mux.Handle("DELETE /delete-product", http.HandlerFunc(handlers.DeleteProduct))
 	mux.Handle("PATCH /patch-product", http.HandlerFunc(handlers.PatchProduct))

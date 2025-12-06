@@ -68,7 +68,7 @@ cd go-product-api
 ### 2. Run the project
 
 ```
-go run .
+go run main.go
 ```
 
 Server will start at:
